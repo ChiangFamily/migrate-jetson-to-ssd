@@ -2,7 +2,7 @@
 
 # Default source and destination devices
 SOURCE="/dev/mmcblk0"
-DESTINATION="/dev/sda"
+DESTINATION="/dev/nvme0n"
 
 # Function to show help message
 show_help() {
