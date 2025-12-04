@@ -2,7 +2,7 @@
 
 # Default source and destination devices
 SOURCE="/dev/mmcblk0"
-DESTINATION="/dev/sda"
+DESTINATION="/dev/nvme0n1"
 
 # Function to show help message
 show_help() {
@@ -75,7 +75,7 @@ for SOURCE_PART in $SOURCE_PARTS; do
     PART_NUM=$(echo "$SOURCE_PART" | grep -oE '[0-9]+$')
 
     # Match the corresponding destination partition
-    if [[ "$SOURCE" == *"mmcblk"* || "$SOURCE" == *"nvme"* ]]; then
+    if [[ "$DESTINATION" == *"mmcblk"* || "$DESTINATION" == *"nvme"* ]]; then
         DEST_PART="${DESTINATION}p${PART_NUM}"
     else
         DEST_PART="${DESTINATION}${PART_NUM}"
