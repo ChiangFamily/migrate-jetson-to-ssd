@@ -75,6 +75,7 @@ for SOURCE_PART in $SOURCE_PARTS; do
     PART_NUM=$(echo "$SOURCE_PART" | grep -oE '[0-9]+$')
 
     # Match the corresponding destination partition
+    # The destination partitions may be /dev/sda1, /dev/sda2, etc., not /dev/sdap1, /dev/sdap2 as the script looks for.
     if [[ "$DESTINATION" == *"mmcblk"* || "$DESTINATION" == *"nvme"* ]]; then
         DEST_PART="${DESTINATION}p${PART_NUM}"
     else
